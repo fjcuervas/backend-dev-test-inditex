@@ -1,0 +1,15 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: similar-products
+
+external:
+  api:
+    base-url: http://localhost:3001
+    product-detail:
+      url: /product/{productId}
+    similar-ids:
+      url: /product/{productId}/similarids
+
