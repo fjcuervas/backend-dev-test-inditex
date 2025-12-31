@@ -1,4 +1,4 @@
-package com.inditex.product.infraestructure.adapter.input.advice;
+package com.inditex.product.infraestructure.similarproducts.adapter.input.advice;
 
 import org.jspecify.annotations.NonNull;
 import org.springframework.http.ResponseEntity;

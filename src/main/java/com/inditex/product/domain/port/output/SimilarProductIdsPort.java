@@ -1,4 +1,4 @@
-package com.inditex.product.application.similar.port.output;
+package com.inditex.product.domain.port.output;
 
 import org.jspecify.annotations.NonNull;
 import reactor.core.publisher.Flux;

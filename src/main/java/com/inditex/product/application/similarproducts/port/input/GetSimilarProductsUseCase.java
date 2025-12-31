@@ -1,4 +1,4 @@
-package com.inditex.product.application.similar.port.input;
+package com.inditex.product.application.similarproducts.port.input;
 
 import com.inditex.product.domain.model.Product;
 import org.jspecify.annotations.NonNull;

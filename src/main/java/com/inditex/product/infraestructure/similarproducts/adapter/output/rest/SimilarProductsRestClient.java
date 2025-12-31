@@ -1,6 +1,6 @@
-package com.inditex.product.infraestructure.adapter.output.similarproducts.rest;
+package com.inditex.product.infraestructure.similarproducts.adapter.output.rest;
 
-import com.inditex.product.application.similar.port.output.SimilarProductIdsPort;
+import com.inditex.product.domain.port.output.SimilarProductIdsPort;
 import org.jspecify.annotations.NonNull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -8,14 +8,14 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
 @Component
-public class SimilarProductsClient implements SimilarProductIdsPort {
+public class SimilarProductsRestClient implements SimilarProductIdsPort {
 
     private final WebClient webClient;
 
     @Value("${external.api.similar-ids.url}")
     private String similarIdsUrl;
 
-    public SimilarProductsClient(WebClient webClient) {
+    public SimilarProductsRestClient(WebClient webClient) {
         this.webClient = webClient;
     }
 

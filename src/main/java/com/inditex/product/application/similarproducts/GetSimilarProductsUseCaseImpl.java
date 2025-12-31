@@ -1,8 +1,8 @@
-package com.inditex.product.application.similar;
+package com.inditex.product.application.similarproducts;
 
-import com.inditex.product.application.similar.port.input.GetSimilarProductsUseCase;
-import com.inditex.product.application.similar.port.output.ProductDetailPort;
-import com.inditex.product.application.similar.port.output.SimilarProductIdsPort;
+import com.inditex.product.application.similarproducts.port.input.GetSimilarProductsUseCase;
+import com.inditex.product.domain.port.output.ProductDetailPort;
+import com.inditex.product.domain.port.output.SimilarProductIdsPort;
 import com.inditex.product.domain.model.Product;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;

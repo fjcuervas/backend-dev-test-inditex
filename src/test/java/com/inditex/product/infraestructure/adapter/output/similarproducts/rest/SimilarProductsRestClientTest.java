@@ -1,5 +1,6 @@
 package com.inditex.product.infraestructure.adapter.output.similarproducts.rest;
 
+import com.inditex.product.infraestructure.similarproducts.adapter.output.rest.SimilarProductsRestClient;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.*;
@@ -10,10 +11,10 @@ import reactor.test.StepVerifier;
 
 import java.io.IOException;
 
-class SimilarProductsClientTest {
+class SimilarProductsRestClientTest {
 
     private MockWebServer mockWebServer;
-    private SimilarProductsClient client;
+    private SimilarProductsRestClient client;
 
     @BeforeEach
     void setUp() throws IOException {
@@ -24,7 +25,7 @@ class SimilarProductsClientTest {
                 .baseUrl(mockWebServer.url("/").toString())
                 .build();
 
-        client = new SimilarProductsClient(webClient);
+        client = new SimilarProductsRestClient(webClient);
 
         ReflectionTestUtils.setField(
                 client,

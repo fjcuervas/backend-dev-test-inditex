@@ -1,5 +1,6 @@
 package com.inditex.product.infraestructure.adapter.output.common;
 
+import com.inditex.product.infraestructure.similarproducts.adapter.output.rest.ProductDetailRestClient;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.*;
@@ -11,10 +12,10 @@ import reactor.test.StepVerifier;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-class ProductDetailClientTest {
+class ProductDetailRestClientTest {
 
     private MockWebServer mockWebServer;
-    private ProductDetailClient client;
+    private ProductDetailRestClient client;
 
     @BeforeEach
     void setUp() throws IOException {
@@ -25,7 +26,7 @@ class ProductDetailClientTest {
                 .baseUrl(mockWebServer.url("/").toString())
                 .build();
 
-        client = new ProductDetailClient(webClient);
+        client = new ProductDetailRestClient(webClient);
 
         ReflectionTestUtils.setField(
                 client,

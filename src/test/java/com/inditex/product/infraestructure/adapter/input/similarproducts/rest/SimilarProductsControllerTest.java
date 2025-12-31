@@ -1,8 +1,9 @@
 package com.inditex.product.infraestructure.adapter.input.similarproducts.rest;
 
 import com.inditex.product.api.generated.model.ProductDetail;
-import com.inditex.product.application.similar.port.input.GetSimilarProductsUseCase;
+import com.inditex.product.application.similarproducts.port.input.GetSimilarProductsUseCase;
 import com.inditex.product.domain.model.Product;
+import com.inditex.product.infraestructure.similarproducts.adapter.input.rest.SimilarProductsController;
 import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

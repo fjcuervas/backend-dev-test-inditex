@@ -2,6 +2,7 @@ package com.inditex.product.infraestructure.adapter.input.similarproducts.mapper
 
 import com.inditex.product.api.generated.model.ProductDetail;
 import com.inditex.product.domain.model.Product;
+import com.inditex.product.infraestructure.similarproducts.adapter.input.mapper.ProductMapper;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

@@ -1,5 +1,6 @@
 package com.inditex.product.infraestructure.adapter.input.advice;
 
+import com.inditex.product.infraestructure.similarproducts.adapter.input.advice.GlobalExceptionHandler;
 import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

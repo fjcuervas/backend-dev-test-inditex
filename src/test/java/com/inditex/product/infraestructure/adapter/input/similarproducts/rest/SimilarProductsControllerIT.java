@@ -1,7 +1,7 @@
 package com.inditex.product.infraestructure.adapter.input.similarproducts.rest;
 
-import com.inditex.product.application.similar.port.output.ProductDetailPort;
-import com.inditex.product.application.similar.port.output.SimilarProductIdsPort;
+import com.inditex.product.domain.port.output.ProductDetailPort;
+import com.inditex.product.domain.port.output.SimilarProductIdsPort;
 import com.inditex.product.domain.model.Product;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

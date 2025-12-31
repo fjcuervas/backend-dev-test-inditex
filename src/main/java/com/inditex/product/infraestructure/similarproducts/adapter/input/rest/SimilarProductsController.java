@@ -1,9 +1,9 @@
-package com.inditex.product.infraestructure.adapter.input.similarproducts.rest;
+package com.inditex.product.infraestructure.similarproducts.adapter.input.rest;
 
 import com.inditex.product.api.generated.ProductApi;
 import com.inditex.product.api.generated.model.ProductDetail;
-import com.inditex.product.application.similar.port.input.GetSimilarProductsUseCase;
-import com.inditex.product.infraestructure.adapter.input.similarproducts.mapper.ProductMapper;
+import com.inditex.product.application.similarproducts.port.input.GetSimilarProductsUseCase;
+import com.inditex.product.infraestructure.similarproducts.adapter.input.mapper.ProductMapper;
 import org.jspecify.annotations.NonNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
