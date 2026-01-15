@@ -1,4 +1,4 @@
-package com.test.similarproducts;
+package com.inditex.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
