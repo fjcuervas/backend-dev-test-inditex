@@ -39,7 +39,7 @@ export let options = {
       vus: 200,
       duration: '10s',
       exec: "verySlow",
-      gracefulStop: '50s',
+      gracefulStop: '30s',
       startTime: '50s'
     }
   }
