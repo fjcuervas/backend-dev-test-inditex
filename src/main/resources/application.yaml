@@ -13,3 +13,39 @@ external:
     similar-ids:
       url: /product/{productId}/similarids
 
+resilience4j:
+  circuitbreaker:
+    instances:
+      productDetail:
+        slidingWindowSize: 50
+        failureRateThreshold: 50
+        waitDurationInOpenState: 1s
+      similarIds:
+        slidingWindowSize: 50
+        failureRateThreshold: 50
+        waitDurationInOpenState: 2s
+  retry:
+    instances:
+      productDetail:
+        maxAttempts: 3
+        waitDuration: 200ms
+        retryExceptions:
+          - java.io.IOException
+          - org.springframework.web.reactive.function.client.WebClientResponseException$InternalServerError
+          - org.springframework.web.reactive.function.client.WebClientResponseException$BadGateway
+          - org.springframework.web.reactive.function.client.WebClientResponseException$ServiceUnavailable
+          - org.springframework.web.reactive.function.client.WebClientResponseException$GatewayTimeout
+        ignoreExceptions: # avoid CallNotPermittedException because of OPENED circuit and NotFound product
+          - org.springframework.web.reactive.function.client.WebClientResponseException$NotFound
+          - io.github.resilience4j.circuitbreaker.CallNotPermittedException
+      similarIds:
+        maxAttempts: 3
+        waitDuration: 200ms
+        retryExceptions:
+          - java.io.IOException
+          - org.springframework.web.reactive.function.client.WebClientResponseException$InternalServerError
+          - org.springframework.web.reactive.function.client.WebClientResponseException$BadGateway
+          - org.springframework.web.reactive.function.client.WebClientResponseException$ServiceUnavailable
+          - org.springframework.web.reactive.function.client.WebClientResponseException$GatewayTimeout
+        ignoreExceptions: # avoid CallNotPermittedException because of OPENED circuit
+          - io.github.resilience4j.circuitbreaker.CallNotPermittedException

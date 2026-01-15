@@ -1,9 +1,16 @@
 package com.inditex.product.infraestructure.adapter.output.common;
 
 import com.inditex.product.infraestructure.similarproducts.adapter.output.rest.ProductDetailRestClient;
+import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
+import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
+import io.github.resilience4j.retry.RetryConfig;
+import io.github.resilience4j.retry.RetryRegistry;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -26,7 +33,20 @@ class ProductDetailRestClientTest {
                 .baseUrl(mockWebServer.url("/").toString())
                 .build();
 
-        client = new ProductDetailRestClient(webClient);
+        CircuitBreakerRegistry cbRegistry = CircuitBreakerRegistry.of(
+                CircuitBreakerConfig.custom()
+                        .failureRateThreshold(100)
+                        .slidingWindowSize(1)
+                        .build()
+        );
+
+        RetryRegistry retryRegistry = RetryRegistry.of(
+                RetryConfig.custom()
+                        .maxAttempts(1)
+                        .build()
+        );
+
+        client = new ProductDetailRestClient(cbRegistry, retryRegistry, webClient);
 
         ReflectionTestUtils.setField(
                 client,

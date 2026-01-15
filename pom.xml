@@ -21,6 +21,11 @@
         <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
         <openapi-generator.version>7.4.0</openapi-generator.version>
         <build-helper.version>3.3.0</build-helper.version>
+        <resilience4j-spring-boot3.version>2.0.2</resilience4j-spring-boot3.version>
+        <resilience4j-reactor.version>2.3.0</resilience4j-reactor.version>
+        <resilience4j-circuitbreaker.version>2.3.0</resilience4j-circuitbreaker.version>
+        <resilience4j-retry.version>2.3.0</resilience4j-retry.version>
+        <resilience4j-timelimiter.version>2.3.0</resilience4j-timelimiter.version>
 	</properties>
 
 	<dependencies>
@@ -78,6 +83,34 @@
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Resilience with retry and circuitbreaker -->
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-spring-boot3</artifactId> <!--Beans and auto-configuration-->
+            <version>${resilience4j-spring-boot3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-reactor</artifactId>
+            <version>${resilience4j-reactor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-circuitbreaker</artifactId>
+            <version>${resilience4j-circuitbreaker.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-retry</artifactId>
+            <version>${resilience4j-retry.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-timelimiter</artifactId>
+            <version>${resilience4j-timelimiter.version}</version>
         </dependency>
     </dependencies>
 
